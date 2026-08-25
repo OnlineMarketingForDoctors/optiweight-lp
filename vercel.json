@@ -4,5 +4,8 @@
   "installCommand": null,
   "outputDirectory": null,
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/", "destination": "/gastric-balloon/", "permanent": true }
+  ]
 }
