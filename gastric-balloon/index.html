@@ -113,6 +113,10 @@ header .btn{padding:.95em 1.6em;font-size:.74rem}
 .creds ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem clamp(1.5rem,4vw,3.4rem)}
 .creds li{font-weight:500;color:#9A9AA4;letter-spacing:.02em}
 .creds li.hi{color:var(--teal-dark);font-weight:700}
+.creds .logos{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.6rem clamp(2rem,5vw,4rem)}
+.creds .logos li{display:flex;align-items:center}
+.creds .logos img{height:clamp(38px,5vw,52px);width:auto;max-width:150px;object-fit:contain;opacity:.72;transition:opacity .2s ease}
+.creds .logos img:hover{opacity:1}
 
 /* ---------- generic layout helpers ---------- */
 .head-block{max-width:22ch}
@@ -209,13 +213,13 @@ header .btn{padding:.95em 1.6em;font-size:.74rem}
 .two-up{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .consent{font-size:.85rem;color:var(--muted);margin:.4rem 0 1.3rem}
 .quiz-card .btn{width:100%}
-.quiz-embed{max-width:620px;margin:2.6rem auto 0;border-radius:22px;overflow:hidden;text-align:left}
-.quiz-embed iframe{display:block;width:100%}
+.quiz-embed{max-width:620px;margin:2.6rem auto 0;background:#fff;padding:20px;border-radius:40px;text-align:left}
+.quiz-embed iframe{display:block;width:100%;min-height:480px;border-radius:22px}
 .modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(15,21,55,.6);display:flex;align-items:flex-start;justify-content:center;padding:28px 14px;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .modal-overlay[hidden]{display:none}
-.modal-box{position:relative;background:#fff;border-radius:18px;width:100%;max-width:640px;margin:auto;overflow:hidden}
-.modal-box iframe{display:block;width:100%;min-height:120px}
-.modal-close{position:absolute;top:10px;right:10px;z-index:2;width:34px;height:34px;border:none;border-radius:50%;background:var(--navy);color:#fff;font-size:1.15rem;line-height:1;cursor:pointer}
+.modal-box{position:relative;background:#fff;border-radius:18px;width:100%;max-width:640px;margin:auto;padding:20px}
+.modal-box iframe{display:block;width:100%;min-height:680px;border-radius:8px}
+.modal-close{position:absolute;top:-14px;right:-14px;z-index:2;width:36px;height:36px;border:none;border-radius:50%;background:var(--navy);color:#fff;font-size:1.2rem;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(15,21,55,.35)}
 .modal-close:hover{background:var(--navy-deep)}
 
 /* ---------- FAQ ---------- */
@@ -357,10 +361,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="creds">
   <div class="wrap">
     <p class="label">Affiliations &amp; Credentials</p>
-    <ul>
-      <li>AHPRA</li><li>RACS</li><li>ANZMOSS</li><li>IFSO</li>
-      <li class="hi">GESA Endoscopy Accredited</li>
-      <li>Bariatric Surgery Registry</li><li>Northern Private</li><li>St Vincent's Private</li>
+    <ul class="logos">
+      <li><img src="logos/ahpra.webp" alt="AHPRA &amp; National Boards" loading="lazy"></li>
+      <li><img src="logos/racs.webp" alt="Royal Australasian College of Surgeons" loading="lazy"></li>
+      <li><img src="logos/ifso.webp" alt="IFSO" loading="lazy"></li>
+      <li><img src="logos/gesa.webp" alt="Gastroenterological Society of Australia (GESA)" loading="lazy"></li>
+      <li><img src="logos/bariatric-surgery-registry.webp" alt="Bariatric Surgery Registry" loading="lazy"></li>
+      <li><img src="logos/northern-private.webp" alt="Northern Private Hospital" loading="lazy"></li>
+      <li><img src="logos/st-vincents-private.webp" alt="St Vincent's Private Hospitals" loading="lazy"></li>
     </ul>
   </div>
 </div>
