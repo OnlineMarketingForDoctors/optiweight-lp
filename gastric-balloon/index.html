@@ -99,7 +99,7 @@ header .wide{display:flex;align-items:center;gap:1.5rem;min-height:var(--hh);pad
 .logo{display:block;flex:0 0 auto;position:relative}
 .logo img{height:54px;width:auto;transition:opacity .35s var(--ease)}
 .logo .l-white{position:absolute;top:0;left:0}
-nav.main{margin-left:auto;display:flex;gap:1.9rem}
+nav.main{margin-inline:auto;display:flex;gap:1.9rem}
 nav.main a{font-family:var(--sans);text-decoration:none;font-weight:500;font-size:.95rem;color:#fff;opacity:.85;transition:opacity .2s,color .2s;padding-block:.3rem}
 nav.main a:hover{opacity:1}
 header .cta-btn{margin-left:.4rem}
@@ -114,10 +114,14 @@ header.solid .logo .l-navy{opacity:1}
 header.solid .logo .l-white{opacity:0}
 header.solid .btn-light{border-color:var(--navy);color:var(--navy)}
 header.solid .btn-light:hover{background:var(--navy);color:#fff}
-.header-phone{font-family:var(--mono);font-size:.82rem;letter-spacing:.02em;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:.55ch;opacity:.9;transition:color .3s,opacity .2s}
-.header-phone:hover{opacity:1}
-.header-phone svg{color:var(--teal-bright)}
+.header-phone{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:.7ch;transition:color .3s,opacity .2s}
+.header-phone:hover{opacity:.85}
+.header-phone svg{color:var(--teal-bright);flex:0 0 auto}
+.header-phone .hp-text{display:flex;flex-direction:column;line-height:1.06}
+.header-phone .hp-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-bright)}
+.header-phone .hp-num{font-family:var(--sans);font-weight:700;font-size:1.08rem;letter-spacing:.01em}
 header.solid .header-phone{color:var(--navy)}
+header.solid .header-phone .hp-label{color:var(--teal-deep)}
 header.solid .header-phone svg{color:var(--teal-deep)}
 
 /* ================= HERO ================= */
@@ -173,9 +177,10 @@ header.solid .header-phone svg{color:var(--teal-deep)}
 .intro-lead{font-family:var(--display);font-weight:400;font-size:clamp(1.2rem,2vw,1.7rem);line-height:1.4;color:var(--navy);letter-spacing:-.01em;margin:0 auto;max-width:34ch}
 .intro-lead em{font-style:italic;color:var(--teal)}
 .intro-kicker{justify-content:center}
+.intro-kicker::before{display:none}
 
 /* ================= WHY: sticky image + reasons ================= */
-.why{background:var(--cream)}
+.why{background:#E7EFF9}
 .why-grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(32px,5vw,80px);align-items:start}
 .why-media{position:sticky;top:96px}
 .why-media figure{margin:0;border-radius:16px 16px 60px 16px;overflow:hidden;aspect-ratio:3/3.7}
@@ -194,8 +199,9 @@ header.solid .header-phone svg{color:var(--teal-deep)}
 .alt{position:relative;min-height:min(88vh,760px);display:flex;align-items:center;color:#fff;overflow:hidden}
 .alt-bg{position:absolute;inset:0}
 .alt-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.alt-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,18,48,.9) 0%,rgba(12,18,48,.72) 42%,rgba(12,18,48,.15) 100%)}
-.alt .panel{position:relative;z-index:2;max-width:560px;padding-block:clamp(48px,7vw,90px)}
+.alt-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,18,48,.94) 0%,rgba(12,18,48,.86) 26%,rgba(12,18,48,.45) 48%,rgba(12,18,48,.05) 70%,transparent 100%)}
+.alt .wide{max-width:none;width:100%;margin-inline:0}
+.alt .panel{position:relative;z-index:2;max-width:480px;padding-block:clamp(48px,7vw,90px)}
 .alt h2{color:#fff}
 .alt .lede{color:rgba(255,255,255,.85);font-size:1.1rem;margin:1.2rem 0 1.8rem;max-width:46ch}
 .alt-list{list-style:none;margin:0 0 2rem;padding:0;display:grid;gap:.1rem}
@@ -209,7 +215,7 @@ header.solid .header-phone svg{color:var(--teal-deep)}
 .balloon-head p{margin:0;color:var(--body)}
 .balloon-figure{position:relative;border-radius:20px;overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 70px -40px rgba(24,40,80,.4)}
 .balloon-figure .img-wrap{position:relative;overflow:hidden}
-.balloon-figure img{width:100%;display:block}
+.balloon-figure img{width:100%;height:auto;display:block}
 .balloon-figure .wipe{position:absolute;inset:0;background:var(--cream);transform-origin:right;transition:transform 1.1s var(--ease)}
 .balloon-figure.in .wipe{transform:scaleX(0)}
 .stages{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
@@ -241,7 +247,9 @@ header.solid .header-phone svg{color:var(--teal-deep)}
 .ctable{width:100%;border-collapse:collapse;font-size:.98rem}
 .ctable caption{display:none}
 .ctable th,.ctable td{text-align:left;padding:1.15rem 1.3rem;border-bottom:1px solid var(--hair);vertical-align:top}
-.ctable thead th{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1.5px solid var(--navy)}
+.ctable thead th{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1.5px solid var(--navy);vertical-align:bottom}
+.ctable thead th .cmp-ico{display:block;height:78px;width:auto;margin:0 0 .8rem}
+.ctable thead th.bal .cmp-ico{margin-left:-4px}
 .ctable thead th.bal{color:var(--teal-deep)}
 .ctable tbody th,.ctable tbody th{font-weight:500}
 .ctable td.rowlab,.ctable th.rowlab{font-family:var(--sans);color:var(--muted);font-weight:500;width:26%}
@@ -410,8 +418,8 @@ footer a:hover{color:#fff}
       <a href="#faq">FAQ</a>
     </nav>
     <a class="header-phone" href="tel:0386796557" aria-label="Call 03 8679 6557">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"></path></svg>
-      03 8679 6557
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"></path></svg>
+      <span class="hp-text"><span class="hp-label">Call us now</span><span class="hp-num">03 8679 6557</span></span>
     </a>
     <a class="btn btn-light cta-btn" href="https://api.leadconnectorhq.com/widget/booking/BCIst7cEWrKNwkikmty1" data-open-booking>Book a discovery call</a>
     <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">☰</button>
@@ -505,7 +513,6 @@ footer a:hover{color:#fff}
       <figure>
         <img src="img/consult.jpg" alt="Dr Ashok Gunawardene in consultation with a patient" width="1900" height="1275">
       </figure>
-      <figcaption><span class="cap">Dr Ashok · Epping</span><span class="cap">Northern Private</span></figcaption>
     </div>
     <div class="why-intro">
       <p class="kicker rv"><span class="idx">01</span> Why OptiWeight</p>
@@ -609,7 +616,7 @@ footer a:hover{color:#fff}
     <div style="overflow-x:auto" class="rv">
       <table class="ctable">
         <colgroup><col><col class="bal-col"><col></colgroup>
-        <thead><tr><th class="rowlab"></th><th class="bal" scope="col">Intragastric balloon</th><th scope="col">Gastric sleeve</th></tr></thead>
+        <thead><tr><th class="rowlab"></th><th class="bal" scope="col"><img class="cmp-ico" src="img/cmp-balloon.png" alt="" width="240" height="300" loading="lazy"><span>Intragastric balloon</span></th><th scope="col"><img class="cmp-ico" src="img/cmp-sleeve.png" alt="" width="240" height="300" loading="lazy"><span>Gastric sleeve</span></th></tr></thead>
         <tbody>
           <tr><th class="rowlab" scope="row">Surgery involved</th><td class="bal" data-l="Balloon">None — placed by gastroscopy</td><td data-l="Sleeve">Laparoscopic operation</td></tr>
           <tr><th class="rowlab" scope="row">Permanent?</th><td class="bal" data-l="Balloon">No — removed after 6–12 months</td><td data-l="Sleeve">Yes — the stomach is not replaced</td></tr>
