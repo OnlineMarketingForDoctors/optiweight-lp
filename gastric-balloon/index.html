@@ -288,13 +288,26 @@ header.solid .header-phone svg{color:var(--teal-deep)}
 .step .body-wrap{padding-top:.5rem}
 
 /* ================= LOCATIONS ================= */
-.locations{background:var(--navy);color:#fff}
-.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(40px,6vw,90px)}
-.loc{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;padding:1.4rem 0;border-bottom:1px solid var(--hair-light);align-items:baseline}
-.loc .pin{color:var(--teal-bright);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;padding-top:.2rem}
-.loc h3{color:#fff;font-size:1.2rem;margin:0 0 .2rem}
-.loc p{margin:0;color:rgba(255,255,255,.62);font-size:.92rem}
-@media(max-width:760px){.loc-grid{grid-template-columns:1fr}}
+.locations{background:var(--cream)}
+.loc-wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(40px,5vw,96px);align-items:center}
+.loc-collage{position:relative;width:100%;max-width:520px;aspect-ratio:1/1.04;margin-inline:auto}
+.loc-collage figure{margin:0;position:absolute;border-radius:16px;overflow:hidden;box-shadow:0 26px 54px -26px rgba(20,30,70,.4)}
+.loc-collage figure img{width:100%;height:100%;object-fit:cover;display:block}
+.loc-collage .c-main{top:0;left:0;width:74%;aspect-ratio:1/1}
+.loc-collage .c-top{top:24%;right:0;width:43%;aspect-ratio:206/182;border:5px solid var(--cream)}
+.loc-collage .c-bot{bottom:2.4rem;left:22%;width:55%;aspect-ratio:326/274;border:5px solid var(--cream)}
+.loc-cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);position:absolute;bottom:0;left:2%;margin:0}
+.loc-kicker{color:var(--teal-deep)}
+.loc-kicker::before{content:"\2726";width:auto;height:auto;background:transparent;margin-right:.35ch}
+.locations h2{color:var(--navy)}
+.locations h2 em{font-style:italic;color:inherit}
+.loc-list{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(28px,3.5vw,60px);margin-top:clamp(24px,3vw,40px)}
+.loc{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1.3rem 0;border-top:1px solid var(--hair);align-items:start}
+.loc .n{color:var(--teal-deep);font-family:var(--mono);font-size:.82rem;padding-top:.28rem}
+.loc h3{color:var(--navy);font-size:1.16rem;margin:0 0 .2rem}
+.loc p{margin:0;color:var(--muted);font-size:.92rem}
+@media(max-width:960px){.loc-wrap{grid-template-columns:1fr}.loc-collage{margin-bottom:2.4rem}}
+@media(max-width:600px){.loc-list{grid-template-columns:1fr}}
 
 /* ================= FEES ================= */
 .fees-sec{background:var(--paper);border-block:1px solid var(--line)}
@@ -671,16 +684,24 @@ footer a:hover{color:#fff}
 
 <!-- ================= LOCATIONS ================= -->
 <section class="locations sec-pad">
-  <div class="wrap">
-    <p class="kicker on-dark rv"><span class="idx">08</span> Where we see patients</p>
-    <h2 class="rv sec-head" style="color:#fff">Across Melbourne's North and West.</h2>
-    <div class="loc-grid" style="margin-top:clamp(28px,3.5vw,48px)">
-      <div class="loc rv"><span class="pin">EPP</span><div><h3>Epping</h3><p>Northern Private Hospital — main consulting &amp; procedure site</p></div></div>
-      <div class="loc rv"><span class="pin">WAL</span><div><h3>Wallan</h3><p>Wallan Medical &amp; Specialist Centre</p></div></div>
-      <div class="loc rv"><span class="pin">SUN</span><div><h3>Sunbury</h3><p>Sunbury Consulting Suite</p></div></div>
-      <div class="loc rv"><span class="pin">PTC</span><div><h3>Point Cook</h3><p>Boardwalk Specialist Centre</p></div></div>
-      <div class="loc rv"><span class="pin">WER</span><div><h3>Werribee</h3><p>St Vincent's Private Hospital</p></div></div>
-      <div class="loc rv"><span class="pin">TEL</span><div><h3>Telehealth</h3><p>Australia-wide, priority for regional Victoria</p></div></div>
+  <div class="wrap loc-wrap">
+    <div class="loc-collage rv">
+      <figure class="c-main"><img src="img/location/nph-exterior-rois5gz4uxfupdn0ti74sggq4aq0z7f15iurrqih18.jpg" alt="Northern Private Hospital, Epping" loading="lazy"></figure>
+      <figure class="c-top"><img src="img/location/nph-corridor-rois60polr7p7a2g96nk0bt7sk8q87el6hzruggbks.jpg" alt="" loading="lazy"></figure>
+      <figure class="c-bot"><img src="img/location/nph-ward-rois5t70jpgytrb1yhm20335s0cyyaa2f1ji0p3y2c.jpg" alt="" loading="lazy"></figure>
+      <p class="loc-cap">Northern Private Hospital, Epping</p>
+    </div>
+    <div class="loc-content">
+      <p class="kicker loc-kicker rv">Where we see patients</p>
+      <h2 class="rv">Across Melbourne's <em>North and West.</em></h2>
+      <div class="loc-list">
+        <div class="loc rv"><span class="n">01</span><div><h3>Epping</h3><p>Northern Private Hospital — main consulting &amp; surgery site</p></div></div>
+        <div class="loc rv"><span class="n">02</span><div><h3>Wallan</h3><p>Wallan Medical &amp; Specialist Centre</p></div></div>
+        <div class="loc rv"><span class="n">03</span><div><h3>Sunbury</h3><p>Sunbury Consulting Suite</p></div></div>
+        <div class="loc rv"><span class="n">04</span><div><h3>Point Cook</h3><p>Point Cook Consulting Suite</p></div></div>
+        <div class="loc rv"><span class="n">05</span><div><h3>Werribee</h3><p>St Vincent's Private Hospital — surgery site</p></div></div>
+        <div class="loc rv"><span class="n">06</span><div><h3>Telehealth</h3><p>Australia-wide, priority for regional Victoria</p></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -689,7 +710,7 @@ footer a:hover{color:#fff}
 <section class="fees-sec sec-pad" id="fees">
   <div class="wrap fees-grid">
     <div class="rv">
-      <p class="kicker"><span class="idx">09</span> The investment</p>
+      <p class="kicker"><span class="idx">08</span> The investment</p>
       <div class="bignum">
         <span class="from">Procedure fees from</span>
         <span class="val" id="feeNum" data-target="7000">$7,000</span>
@@ -735,7 +756,7 @@ footer a:hover{color:#fff}
 <!-- ================= FAQ ================= -->
 <section class="faq-sec sec-pad" id="faq">
   <div class="wrap" style="text-align:center">
-    <p class="kicker rv" style="justify-content:center;display:inline-flex"><span class="idx">10</span> Common questions</p>
+    <p class="kicker rv" style="justify-content:center;display:inline-flex"><span class="idx">09</span> Common questions</p>
     <h2 class="rv">What patients ask us most.</h2>
   </div>
   <div class="wrap faq">
