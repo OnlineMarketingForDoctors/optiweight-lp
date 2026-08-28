@@ -106,12 +106,13 @@ header .btn{padding:.95em 1.6em;font-size:.74rem}
 .hero-media{position:relative}
 .hero-frame{position:relative;border-radius:26px;overflow:hidden;background:#fff;border:1px solid var(--line);aspect-ratio:4/4.5}
 .hero-frame img{width:100%;height:100%;object-fit:cover}
-.rating{position:absolute;top:-14px;right:-6px;background:var(--navy-deep);color:#fff;border-radius:14px;padding:.85rem 1.1rem;text-align:center;box-shadow:0 14px 34px rgba(26,33,69,.24);z-index:2}
+@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.rating{position:absolute;top:-14px;right:-6px;background:var(--navy-deep);color:#fff;border-radius:14px;padding:.85rem 1.1rem;text-align:center;box-shadow:0 14px 34px rgba(26,33,69,.24);z-index:2;animation:floatBadge 4.5s ease-in-out infinite;will-change:transform}
 .rating .rating-brand{display:block;width:74px;height:auto;margin:0 auto .4rem}
 .rating .stars{color:var(--accent);letter-spacing:.09em;font-size:.9rem}
 .rating .score{font-family:var(--display);font-size:1.5rem;line-height:1.1;margin-top:.1rem}
 .rating small{display:block;font-size:.68rem;color:rgba(255,255,255,.72);margin-top:.15rem}
-.doc-chip{position:absolute;bottom:-20px;left:-14px;background:#fff;border-radius:16px;padding:.85rem 1.25rem;display:flex;align-items:center;gap:.85rem;box-shadow:0 16px 38px rgba(34,48,107,.15);z-index:2}
+.doc-chip{position:absolute;bottom:-20px;left:-14px;background:#fff;border-radius:16px;padding:.85rem 1.25rem;display:flex;align-items:center;gap:.85rem;box-shadow:0 16px 38px rgba(34,48,107,.15);z-index:2;animation:floatBadge 5.4s ease-in-out infinite .6s;will-change:transform}
 .doc-chip .initials{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:1rem;letter-spacing:.04em}
 .doc-chip .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;display:block}
 .doc-chip strong{display:block;font-size:.94rem;color:var(--navy-ink)}
