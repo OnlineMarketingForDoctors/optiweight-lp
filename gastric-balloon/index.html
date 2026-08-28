@@ -103,6 +103,7 @@ nav.main{margin-inline:auto;display:flex;gap:1.9rem}
 nav.main a{font-family:var(--sans);text-decoration:none;font-weight:500;font-size:.95rem;color:#fff;opacity:.85;transition:opacity .2s,color .2s;padding-block:.3rem}
 nav.main a:hover{opacity:1}
 header .cta-btn{margin-left:.4rem}
+.hdr-mobile-cta{display:none;padding:.72em 1.25em;font-size:.68rem;letter-spacing:.06em}
 .menu-toggle{display:none;background:none;border:0;font:inherit;color:#fff;cursor:pointer;padding:.4rem;margin-left:auto}
 /* transparent over hero */
 header:not(.solid) .logo .l-navy{opacity:0}
@@ -130,7 +131,10 @@ header.solid .header-phone svg{color:var(--teal-deep)}
   linear-gradient(158deg,#0C1230 0%,#17205A 42%,#2A4694 74%,#7FB2E4 100%);
   color:#fff;position:relative;overflow:hidden;margin-top:calc(-1 * var(--hh) - 2px);padding-top:calc(var(--hh) + 2px + clamp(26px,4.5vw,58px));padding-bottom:clamp(56px,7vw,104px)}
 .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:4px 4px;opacity:.5;pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,70px);align-items:center;position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;grid-template-areas:"top figure" "body figure";column-gap:clamp(28px,4vw,70px);row-gap:0;align-items:start;position:relative;z-index:1}
+.hero-top{grid-area:top}
+.hero-body{grid-area:body}
+.hero-figure{grid-area:figure;align-self:center}
 .hero-eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-bright);margin:0 0 1.4rem;display:flex;align-items:center;gap:.8ch}
 .hero-eyebrow::before{content:"";width:30px;height:1px;background:var(--teal-bright)}
 .hero h1{color:#fff;letter-spacing:-.028em}
@@ -380,7 +384,7 @@ footer a:hover{color:#fff}
 .to-top.show{opacity:1;visibility:visible;transform:none}
 .to-top:hover{background:var(--teal-deep)}
 .to-top svg{width:20px;height:20px}
-@media(max-width:760px){.to-top{right:16px;bottom:150px;width:42px;height:42px}}
+@media(max-width:760px){.to-top{right:16px;bottom:96px;width:42px;height:42px}}
 
 /* ================= mobile bar ================= */
 .mobile-bar{display:none}
@@ -403,11 +407,17 @@ footer a:hover{color:#fff}
   nav.main{display:none}
   header .cta-btn{display:none}
   .menu-toggle{display:block}
+  .header-phone{gap:0}
+  .header-phone .hp-text{display:none}
+  .header-phone svg{width:22px;height:22px}
+  header.solid .logo{display:none}
+  header.solid .hdr-mobile-cta{display:inline-flex}
   .hero-grid,.why-grid,.balloon-head,.consider-grid,.surgeon-grid,.fees-grid,.quiz-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-areas:"top" "figure" "body";row-gap:1.6rem}
   .why-media{position:static}
   .why-media figure{aspect-ratio:16/12}
   .surgeon-media figure,.quiz-media{aspect-ratio:16/13}
-  .hero-figure{max-width:460px;margin-inline:auto}
+  .hero-figure{max-width:420px;margin-inline:auto;width:100%}
   .surgeon-grid .surgeon-media{order:-1}
 }
 @media(max-width:760px){
@@ -415,9 +425,6 @@ footer a:hover{color:#fff}
   .stage{border-left:0;border-top:1px solid var(--line)}
   .incl{grid-template-columns:1fr}
   .f-grid{grid-template-columns:1fr 1fr}
-  .mobile-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:800;gap:.6rem;padding:.7rem;background:rgba(251,249,244,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
-  .mobile-bar .btn{flex:1;padding:1em 1rem;font-size:.72rem}
-  body{padding-bottom:70px}
   .assur div{flex:1 1 100%}
 }
 @media(max-width:520px){.f-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(2.4rem,10vw,3rem)}}
@@ -431,6 +438,7 @@ footer a:hover{color:#fff}
       <img class="l-navy" src="logo-navy.png" alt="OptiWeight Victoria">
       <img class="l-white" src="img/log-white-optiweight.png" alt="">
     </a>
+    <a class="btn btn-primary hdr-mobile-cta" href="https://api.leadconnectorhq.com/widget/booking/BCIst7cEWrKNwkikmty1" data-open-booking>Discovery call</a>
     <nav class="main" aria-label="Primary">
       <a href="#how">How it works</a>
       <a href="#balloon">The balloon</a>
@@ -451,21 +459,9 @@ footer a:hover{color:#fff}
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wide hero-grid">
-    <div class="hero-copy">
+    <div class="hero-top">
       <p class="hero-eyebrow">Gastric Balloon · Melbourne</p>
       <h1>Weight loss support <em>without an operation.</em></h1>
-      <p class="lede">A soft silicone balloon, placed in the stomach by gastroscopy in a single day. No incisions. Temporary and removable. Placed and monitored by a GESA-accredited specialist surgeon, with dietitian support built in.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#check">Check if a balloon suits you</a>
-        <a class="btn btn-light" href="https://api.leadconnectorhq.com/widget/booking/BCIst7cEWrKNwkikmty1" data-open-booking>Book a free discovery call</a>
-      </div>
-      <div class="assur">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>No incisions, no scars</div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>Home the same day</div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>Temporary &amp; removable</div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>Procedure fees from $7,000</div>
-      </div>
-      <p class="hero-note">No GP referral needed · Appointments in 1–2 weeks · Bulk-billed telehealth for regional patients</p>
     </div>
     <div class="hero-figure">
       <div class="rating">
@@ -478,6 +474,20 @@ footer a:hover{color:#fff}
         <img class="avatar" src="dr-ashok-headshot-roh93doyzkhhm9mpumwkcewh3lducmnz5149nyrgu0.jpg" alt="Dr Ashok Gunawardene" width="46" height="46">
         <span><strong>Dr Ashok Gunawardene, FRACS</strong><span>GESA accredited · 15 years' experience</span></span>
       </div>
+    </div>
+    <div class="hero-body">
+      <p class="lede">A soft silicone balloon, placed in the stomach by gastroscopy in a single day. No incisions. Temporary and removable. Placed and monitored by a GESA-accredited specialist surgeon, with dietitian support built in.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#check">Check if a balloon suits you</a>
+        <a class="btn btn-light" href="https://api.leadconnectorhq.com/widget/booking/BCIst7cEWrKNwkikmty1" data-open-booking>Book a free discovery call</a>
+      </div>
+      <div class="assur">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>No incisions, no scars</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>Home the same day</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>Temporary &amp; removable</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>Procedure fees from $7,000</div>
+      </div>
+      <p class="hero-note">No GP referral needed · Appointments in 1–2 weeks · Bulk-billed telehealth for regional patients</p>
     </div>
   </div>
 </section>
@@ -698,7 +708,6 @@ footer a:hover{color:#fff}
       <figure class="c-main"><img src="img/location/nph-exterior-rois5gz4uxfupdn0ti74sggq4aq0z7f15iurrqih18.jpg" alt="Northern Private Hospital, Epping" loading="lazy"></figure>
       <figure class="c-top"><img src="img/location/nph-corridor-rois60polr7p7a2g96nk0bt7sk8q87el6hzruggbks.jpg" alt="" loading="lazy"></figure>
       <figure class="c-bot"><img src="img/location/nph-ward-rois5t70jpgytrb1yhm20335s0cyyaa2f1ji0p3y2c.jpg" alt="" loading="lazy"></figure>
-      <p class="loc-cap">Northern Private Hospital, Epping</p>
     </div>
     <div class="loc-content">
       <p class="kicker loc-kicker rv">Where we see patients</p>
@@ -831,11 +840,6 @@ footer a:hover{color:#fff}
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
 </button>
 
-<div class="mobile-bar">
-  <a class="btn btn-outline" href="tel:0386796557">Call</a>
-  <a class="btn btn-primary" href="#check">Check suitability</a>
-</div>
-
 <!-- Booking calendar popup -->
 <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-label="Book a free discovery call" hidden>
   <div class="modal-box">
@@ -867,7 +871,7 @@ var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var header = document.getElementById('siteHeader');
   var hero = document.querySelector('.hero');
   function onScroll(){
-    var trigger = hero ? hero.offsetHeight - 90 : 200;
+    var trigger = window.innerWidth <= 960 ? 24 : (hero ? hero.offsetHeight - 90 : 200);
     if(window.scrollY > trigger){ header.classList.add('solid'); }
     else { header.classList.remove('solid'); }
   }
