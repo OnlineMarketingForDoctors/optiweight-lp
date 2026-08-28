@@ -104,13 +104,14 @@ nav.main a{font-family:var(--sans);text-decoration:none;font-weight:500;font-siz
 nav.main a:hover{opacity:1}
 header .cta-btn{margin-left:.4rem}
 .hdr-mobile-cta{display:none;padding:.72em 1.25em;font-size:.68rem;letter-spacing:.06em}
-.menu-toggle{display:none;background:none;border:0;font:inherit;color:#fff;cursor:pointer;padding:.4rem;margin-left:auto}
+.menu-toggle{display:none;background:none;border:0;color:var(--teal-bright);cursor:pointer;padding:.4rem;line-height:0}
+.menu-toggle svg{width:22px;height:22px;display:block}
+header.solid .menu-toggle{color:var(--teal-deep)}
 /* transparent over hero */
 header:not(.solid) .logo .l-navy{opacity:0}
 header:not(.solid) .logo .l-white{opacity:1}
 header.solid{background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border-color:var(--line);box-shadow:0 1px 0 rgba(24,27,38,.04)}
 header.solid nav.main a{color:var(--navy);opacity:.9}
-header.solid .menu-toggle{color:var(--navy)}
 header.solid .logo .l-navy{opacity:1}
 header.solid .logo .l-white{opacity:0}
 header.solid .btn-light{border-color:var(--navy);color:var(--navy)}
@@ -407,7 +408,8 @@ footer a:hover{color:#fff}
   nav.main{display:none}
   header .cta-btn{display:none}
   .menu-toggle{display:block}
-  .header-phone{gap:0}
+  header .wide{gap:.85rem}
+  .header-phone{gap:0;margin-left:auto}
   .header-phone .hp-text{display:none}
   .header-phone svg{width:22px;height:22px}
   header.solid .logo{display:none}
@@ -452,7 +454,7 @@ footer a:hover{color:#fff}
       <span class="hp-text"><span class="hp-label">Call us now</span><span class="hp-num">03 8679 6557</span></span>
     </a>
     <a class="btn btn-light cta-btn" href="https://api.leadconnectorhq.com/widget/booking/BCIst7cEWrKNwkikmty1" data-open-booking>Book a discovery call</a>
-    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">☰</button>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
   </div>
 </header>
 
