@@ -288,14 +288,14 @@ header.solid .header-phone svg{color:var(--teal-deep)}
 .step .body-wrap{padding-top:.5rem}
 
 /* ================= LOCATIONS ================= */
-.locations{background:var(--cream)}
+.locations{background:#E7EFF9}
 .loc-wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(40px,5vw,96px);align-items:center}
 .loc-collage{position:relative;width:100%;max-width:520px;aspect-ratio:1/1.04;margin-inline:auto}
 .loc-collage figure{margin:0;position:absolute;border-radius:16px;overflow:hidden;box-shadow:0 26px 54px -26px rgba(20,30,70,.4)}
 .loc-collage figure img{width:100%;height:100%;object-fit:cover;display:block}
 .loc-collage .c-main{top:0;left:0;width:74%;aspect-ratio:1/1}
-.loc-collage .c-top{top:24%;right:0;width:43%;aspect-ratio:206/182;border:5px solid var(--cream)}
-.loc-collage .c-bot{bottom:2.4rem;left:22%;width:55%;aspect-ratio:326/274;border:5px solid var(--cream)}
+.loc-collage .c-top{top:24%;right:0;width:43%;aspect-ratio:206/182;border:5px solid #E7EFF9}
+.loc-collage .c-bot{bottom:2.4rem;left:22%;width:55%;aspect-ratio:326/274;border:5px solid #E7EFF9}
 .loc-cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);position:absolute;bottom:0;left:2%;margin:0}
 .loc-kicker{color:var(--teal-deep)}
 .loc-kicker::before{content:"\2726";width:auto;height:auto;background:transparent;margin-right:.35ch}
@@ -372,6 +372,15 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
 footer a{text-decoration:none;color:rgba(255,255,255,.72)}
 footer a:hover{color:#fff}
 .f-legal{padding-top:1.8rem;display:grid;gap:.5rem;font-family:var(--mono);font-size:.7rem;line-height:1.7;color:rgba(255,255,255,.5)}
+.powered{background:var(--navy-deep);text-align:center;padding:1rem;border-top:1px solid var(--hair-light);font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:rgba(255,255,255,.45)}
+.powered a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.powered a:hover{color:#fff}
+.powered strong{color:var(--teal-bright);font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+.to-top{position:fixed;right:24px;bottom:96px;z-index:850;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;border:none;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 26px -10px rgba(12,18,48,.7);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s var(--ease),transform .3s var(--ease),background .2s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--teal-deep)}
+.to-top svg{width:20px;height:20px}
+@media(max-width:760px){.to-top{right:16px;bottom:150px;width:42px;height:42px}}
 
 /* ================= mobile bar ================= */
 .mobile-bar{display:none}
@@ -814,6 +823,14 @@ footer a:hover{color:#fff}
   </div>
 </footer>
 
+<div class="powered">
+  <a href="https://onlinemarketingfordoctors.com/" target="_blank" rel="noopener">Powered by <strong>omd</strong> Online Marketing For Doctors</a>
+</div>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
 <div class="mobile-bar">
   <a class="btn btn-outline" href="tel:0386796557">Call</a>
   <a class="btn btn-primary" href="#check">Check suitability</a>
@@ -951,6 +968,15 @@ var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // recalc on resize
     window.addEventListener('resize', function(){ if(d.open){ body.style.height='auto'; var h=body.scrollHeight; body.style.height=h+'px'; } });
   });
+})();
+
+// Back to top
+(function(){
+  var t = document.getElementById('toTop');
+  if(!t) return;
+  function onScroll(){ if(window.scrollY > 600){ t.classList.add('show'); } else { t.classList.remove('show'); } }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  t.addEventListener('click', function(){ window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'}); });
 })();
 
 // Booking calendar popup
