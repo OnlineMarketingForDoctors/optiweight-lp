@@ -43,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --wrap:1240px;
   --wide:1440px;
   --pad:clamp(20px,5vw,72px);
-  --hh:66px;
+  --hh:80px;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{box-sizing:border-box}
@@ -97,7 +97,7 @@ em.ink{font-style:italic;color:var(--teal)}
 header{position:sticky;top:0;z-index:900;min-height:var(--hh);transition:background .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);border-bottom:1px solid transparent}
 header .wide{display:flex;align-items:center;gap:1.5rem;min-height:var(--hh);padding-block:.7rem}
 .logo{display:block;flex:0 0 auto;position:relative}
-.logo img{height:38px;width:auto;transition:opacity .35s var(--ease)}
+.logo img{height:54px;width:auto;transition:opacity .35s var(--ease)}
 .logo .l-white{position:absolute;top:0;left:0}
 nav.main{margin-left:auto;display:flex;gap:1.9rem}
 nav.main a{font-family:var(--sans);text-decoration:none;font-weight:500;font-size:.95rem;color:#fff;opacity:.85;transition:opacity .2s,color .2s;padding-block:.3rem}
@@ -124,7 +124,7 @@ header.solid .header-phone svg{color:var(--teal-deep)}
 .hero{background:
   radial-gradient(120% 90% at 88% 12%, rgba(92,192,186,.20), transparent 55%),
   linear-gradient(158deg,#0C1230 0%,#17205A 42%,#2A4694 74%,#7FB2E4 100%);
-  color:#fff;position:relative;overflow:hidden;margin-top:calc(-1 * var(--hh));padding-top:calc(var(--hh) + clamp(30px,5vw,64px));padding-bottom:clamp(56px,7vw,104px)}
+  color:#fff;position:relative;overflow:hidden;margin-top:calc(-1 * var(--hh) - 2px);padding-top:calc(var(--hh) + 2px + clamp(26px,4.5vw,58px));padding-bottom:clamp(56px,7vw,104px)}
 .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:4px 4px;opacity:.5;pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,70px);align-items:center;position:relative;z-index:1}
 .hero-eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-bright);margin:0 0 1.4rem;display:flex;align-items:center;gap:.8ch}
