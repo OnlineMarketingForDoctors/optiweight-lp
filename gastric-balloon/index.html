@@ -104,14 +104,15 @@ nav.main a{font-family:var(--sans);text-decoration:none;font-weight:500;font-siz
 nav.main a:hover{opacity:1}
 header .cta-btn{margin-left:.4rem}
 .hdr-mobile-cta{display:none;padding:.72em 1.25em;font-size:.68rem;letter-spacing:.06em}
-.menu-toggle{display:none;background:none;border:0;color:var(--teal-bright);cursor:pointer;padding:.4rem;line-height:0}
-.menu-toggle svg{width:22px;height:22px;display:block;transition:transform .3s var(--ease)}
-.menu-toggle svg path{transition:transform .3s var(--ease),opacity .2s ease;transform-origin:center}
+.menu-toggle{display:none;background:none;border:0;color:var(--teal-bright);cursor:pointer;padding:.4rem;line-height:0;outline:none;-webkit-tap-highlight-color:transparent}
+.menu-toggle:focus-visible{outline:2px solid var(--teal-bright);outline-offset:3px;border-radius:6px}
+.menu-toggle svg{width:22px;height:22px;display:block}
+.menu-toggle svg line{transition:transform .3s var(--ease),opacity .2s ease;transform-box:view-box;transform-origin:center}
 header.solid .menu-toggle{color:var(--teal-deep)}
 .menu-toggle[aria-expanded="true"]{color:#fff}
-.menu-toggle[aria-expanded="true"] svg path:nth-child(1){transform:translateY(5px) rotate(45deg)}
-.menu-toggle[aria-expanded="true"] svg path:nth-child(2){opacity:0}
-.menu-toggle[aria-expanded="true"] svg path:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.menu-toggle[aria-expanded="true"] svg line:nth-child(1){transform:rotate(45deg) translateY(5px)}
+.menu-toggle[aria-expanded="true"] svg line:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] svg line:nth-child(3){transform:rotate(-45deg) translateY(-5px)}
 /* mobile menu drawer */
 .mobile-menu{position:fixed;inset:0;z-index:890;background:linear-gradient(180deg,var(--navy-deep),var(--navy));padding:calc(var(--hh) + 1.2rem) var(--pad) 2.2rem;display:flex;flex-direction:column;opacity:0;transform:translateY(-10px);transition:opacity .3s var(--ease),transform .3s var(--ease);pointer-events:none}
 .mobile-menu.open{opacity:1;transform:none;pointer-events:auto}
@@ -477,7 +478,7 @@ footer a:hover{color:#fff}
       <span class="hp-text"><span class="hp-label">Call us now</span><span class="hp-num">03 8679 6557</span></span>
     </a>
     <a class="btn btn-light cta-btn" href="https://api.leadconnectorhq.com/widget/booking/BCIst7cEWrKNwkikmty1" data-open-booking>Book a discovery call</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
   </div>
 </header>
 
